@@ -1,13 +1,13 @@
 from card import Card
 from deck import Deck
 from hand import Hand
+from colorama import Fore, Back, Style
 from colorama import init
 init()
-from colorama import Fore, Back, Style
-
 
 
 def reset_game():
+    """Returns the number of points which gives a map of"""
     d = Deck()
     player_hand = Hand("Player")
     dealer_hand = Hand("Dealer")
@@ -15,21 +15,22 @@ def reset_game():
     player_hand.add_card(d.deal_card())
     dealer_hand.add_card(d.deal_card())
     print(dealer_hand)
-    print("="*20)
+    print("*" * 25)
     print(player_hand)
     in_game = True
     while player_hand.get_value() < 21:
-        ans = input("Hit or stand? (h/s) ")
-        if ans == "h":
+        ans = input("Press h to Hit or any to stand? ")
+        if ans.lower() == "h":
             player_hand.add_card(d.deal_card())
+            print("You Hit!")
             print(player_hand)
             if player_hand.get_value() > 21:
                 print(Fore.RED + "YOU LOSE!!")
                 in_game = False
         else:
-            print("You stand!")
+            print("You Stand!")
             break
-    print("=" * 20)
+    print("*" * 20)
     if in_game:
         while dealer_hand.get_value() < 17:
             dealer_hand.add_card(d.deal_card())
