@@ -7,7 +7,8 @@ init()
 
 
 def reset_game():
-    """Returns the number of points which gives a map of"""
+    """Function called to start Blckjack
+    """
     d = Deck()
     player_hand = Hand("Player")
     dealer_hand = Hand("Dealer")
@@ -45,4 +46,3 @@ def reset_game():
             print(Fore.RED + " DEALER WINS!!")
 
 reset_game()
-
