@@ -1,5 +1,5 @@
 class Card(object):
-    """Returns value of a card in a hand.
+    """Returns value of a card in players hand.
     """
     def __init__(self, rank, suit):
         self.rank = rank
@@ -9,13 +9,10 @@ class Card(object):
         return "%s%s" % (self.rank, self.suit)
 
     def card_value(self):
-        if self.rank in "TJQK":
-            # In 10 of the top ten,J,Q,K.
+        if self.rank in "TJQK":  # Ten, Jack, Queen, King = 10 points.
             return 10
         else:
-            # Returns the number of points required for any other card.
-            # Ace initially gives 1 point.
-            return " A23456789".index(self.rank)
+            return " A23456789".index(self.rank)  # Ace initially gives 1 point.
 
     def get_rank(self):
         return self.rank
