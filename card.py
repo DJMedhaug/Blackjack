@@ -12,6 +12,7 @@ class Card(object):
         if self.rank in "TJQK":  # Ten, Jack, Queen, King = 10 points.
             return 10
         else:
+            # assert self.rank == "J"
             return " A23456789".index(self.rank)  # Ace initially gives 1 point.
 
     def get_rank(self):
