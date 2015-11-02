@@ -2,6 +2,7 @@
 blackjack project
 A simple program to play Blackjack on the terminal. Run main.py to play.
 
+```
 class Deck(object):
     """ deck class that shuffles and distributes cards.
     """
@@ -13,3 +14,4 @@ class Deck(object):
         shuffle(self.cards)
 
     def deal_card(self): return self.cards.pop()
+```
